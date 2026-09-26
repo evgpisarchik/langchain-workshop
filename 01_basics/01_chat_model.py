@@ -128,7 +128,7 @@ def _():
 def _():
     questions = ["Translate 'hello' to German", "Translate 'hello' to Spanish", "Translate 'hello' to Russian"]
     answers = llm.batch(questions, config={"max_concurrency": 3})
-    mo.ui.table([{"question": q, "answer": a.text} for q, a in zip(questions, answers)])
+    mo.ui.table([{"question": q, "answer": str(a.text)} for q, a in zip(questions, answers)])
     return
 
 

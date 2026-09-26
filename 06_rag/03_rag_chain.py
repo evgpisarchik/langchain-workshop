@@ -69,7 +69,7 @@ def _(prompt, retriever):
         "What's the hotel limit per night in Paris?",
         "Does the company offer a gym membership?",
     ]
-    mo.ui.table([{"question": q, "answer": a} for q, a in zip(_questions, rag_chain.batch(_questions))])
+    mo.ui.table([{"question": q, "answer": str(a)} for q, a in zip(_questions, rag_chain.batch(_questions))])
     return (rag_chain,)
 
 

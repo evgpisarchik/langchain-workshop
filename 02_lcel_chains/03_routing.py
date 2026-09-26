@@ -104,7 +104,7 @@ def _(billing_chain, classifier, general_chain, questions, technical_chain):
     )
     mo.ui.table(
         [
-            {"route": r["route"].category, "question": r["question"], "answer": r["answer"]}
+            {"route": r["route"].category, "question": r["question"], "answer": str(r["answer"])}
             for r in router_chain.batch([{"question": q} for q in questions])
         ]
     )

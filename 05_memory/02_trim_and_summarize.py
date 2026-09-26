@@ -75,7 +75,7 @@ def _(history, max_tokens, question):
     )
     trimmed = trimmer.invoke(history)
     mo.vstack([
-        mo.ui.table([{"role": m.type, "text": m.text} for m in trimmed], label="Kept"),
+        mo.ui.table([{"role": m.type, "text": str(m.text)} for m in trimmed], label="Kept"),
         mo.md(f"**Answer with trimmed history (the allergy may be lost!):** {llm.invoke(trimmed + [question]).text}"),
     ])
     return

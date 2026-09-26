@@ -48,7 +48,7 @@ def _():
         _calls = []
         for _attempt in range(2):
             _start = time.perf_counter()
-            _answer = _llm.invoke("Name the largest moon of Jupiter. One word.").text
+            _answer = str(_llm.invoke("Name the largest moon of Jupiter. One word.").text)
             _calls.append({"call": _attempt + 1, "answer": _answer, "seconds": round(time.perf_counter() - _start, 3)})
         _uncached = get_llm(cache=False, temperature=1.0).invoke("Invent a pirate name. Name only.").text
     finally:
@@ -100,7 +100,7 @@ def _():
             {
                 "max_concurrency": _concurrency,
                 "seconds": round(time.perf_counter() - _start, 1),
-                "first answers": [r.text for r in _results][:4],
+                "first answers": [str(r.text) for r in _results][:4],
             }
         )
     mo.ui.table(_rows)

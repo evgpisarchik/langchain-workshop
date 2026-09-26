@@ -62,7 +62,7 @@ def _():
     for _text in ["Hi, I'm Dana and I work as a nurse.", "What's my job?"]:
         _reply = chain.invoke({"history": history, "input": _text})
         history += [HumanMessage(_text), AIMessage(_reply.text)]
-    mo.ui.table([{"role": m.type, "text": m.text} for m in history])
+    mo.ui.table([{"role": m.type, "text": str(m.text)} for m in history])
     return
 
 

@@ -79,7 +79,7 @@ async def _():
     facts = await asyncio.gather(*(llm.ainvoke(f"One fun fact about {topic}, one sentence.") for topic in topics))
     _elapsed = time.perf_counter() - _start
     mo.vstack([
-        mo.ui.table([{"topic": t, "fact": f.text} for t, f in zip(topics, facts)]),
+        mo.ui.table([{"topic": t, "fact": str(f.text)} for t, f in zip(topics, facts)]),
         mo.md(f"{len(topics)} calls in **{_elapsed:.1f}s** (concurrent)"),
     ])
     return

@@ -59,7 +59,7 @@ def _():
 def _(chain):
     concepts = ["gravity", "DNA"]
     mo.ui.table(
-        [{"concept": c, "explanation": t} for c, t in zip(concepts, chain.batch([{"concept": c} for c in concepts]))]
+        [{"concept": c, "explanation": str(t)} for c, t in zip(concepts, chain.batch([{"concept": c} for c in concepts]))]
     )
     return
 

@@ -96,14 +96,14 @@ def _(inventory_agent, pricing_agent):
     def ask_inventory(question: str) -> str:
         """Ask the warehouse agent about stock availability."""
         result = inventory_agent.invoke({"messages": [{"role": "user", "content": question}]})
-        delegations.append({"agent": "inventory_agent", "question": question, "answer": result["messages"][-1].text})
+        delegations.append({"agent": "inventory_agent", "question": question, "answer": str(result["messages"][-1].text)})
         return result["messages"][-1].text
 
     @tool
     def ask_pricing(question: str) -> str:
         """Ask the pricing agent for prices, discounts and order totals."""
         result = pricing_agent.invoke({"messages": [{"role": "user", "content": question}]})
-        delegations.append({"agent": "pricing_agent", "question": question, "answer": result["messages"][-1].text})
+        delegations.append({"agent": "pricing_agent", "question": question, "answer": str(result["messages"][-1].text)})
         return result["messages"][-1].text
 
     supervisor = create_agent(

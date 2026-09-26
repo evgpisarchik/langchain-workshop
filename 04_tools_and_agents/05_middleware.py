@@ -184,7 +184,7 @@ def _():
         "My budget is 3000 EUR without flights.",
         "Remind me: what's my name, destination and budget?",
     ]:
-        _answer = chat.invoke({"messages": [{"role": "user", "content": _text}]}, chat_config)["messages"][-1].text
+        _answer = str(chat.invoke({"messages": [{"role": "user", "content": _text}]}, chat_config)["messages"][-1].text)
         _stored = chat.get_state(chat_config).values["messages"]
         turns.append({"user": _text, "stored messages": len(_stored), "answer": _answer})
     mo.vstack([

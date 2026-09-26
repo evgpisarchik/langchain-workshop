@@ -126,7 +126,7 @@ def _(answer_chain, retriever):
         _standalone = rewrite_chain.invoke({"history": history, "question": _turn}) if history else _turn
         _docs = retriever.invoke(_standalone)
         _answer = answer_chain.invoke({"context": format_docs(_docs), "history": history, "question": _turn})
-        turns.append({"user": _turn, "search query": _standalone, "bot": _answer})
+        turns.append({"user": _turn, "search query": _standalone, "bot": str(_answer)})
         history += [HumanMessage(_turn), AIMessage(_answer)]
     mo.ui.table(turns)
     return
