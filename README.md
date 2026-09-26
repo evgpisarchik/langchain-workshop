@@ -89,5 +89,5 @@ Also note:
 
 ## Versions
 
-Tested with Python 3.12, `marimo` 0.25, `langchain` 1.4, `langchain-core` 1.6, `langchain-openai` 1.6 and `langgraph` 1.2.
+Tested with Python 3.14, `marimo` 0.25, `langchain` 1.4, `langchain-core` 1.6, `langchain-openai` 1.6 and `langgraph` 1.2.
 `langchain-community` is being sunset upstream and is intentionally not used.

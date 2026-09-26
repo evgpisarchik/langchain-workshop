@@ -2,7 +2,7 @@
 name = "langchain-examples"
 version = "0.1.0"
 description = "Structured LangChain / LangGraph examples running on an OpenAI-compatible gateway"
-requires-python = ">=3.12"
+requires-python = ">=3.14"
 dependencies = [
     "httpx>=0.28.1",
     "langchain>=1.4.2",
